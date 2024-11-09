@@ -329,9 +329,6 @@ footer {
     }
 }
  
-
-
-
 #signup-form input,
 #signup-form button {
     width: 100%;
@@ -359,3 +356,25 @@ footer {
 #signup-form button:hover {
     background-color: #a80707; /* Darker blue on hover */
 }
+
+
+#popup-element-id { display: none !important; }
+
+.service-card a { /* Target the <a> tag within the service card */
+    display: inline-block; /* Make it a block-level element for styling */
+    background-color: #bd0606; /* Example: Bright pink background */
+    color: white; /* White text */
+    border: 2px solid #f0ba09; /* Yellow border */
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-weight: bold;
+    text-decoration: none; /* Remove default link underline */
+    margin: 20px auto; /* Center horizontally and add margins */
+  }
+  
+  .service-card a:hover {
+    background-color: #f0ba09; /* Yellow background on hover */
+    color: #1A1A1A; /* Dark text on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+  }
+  

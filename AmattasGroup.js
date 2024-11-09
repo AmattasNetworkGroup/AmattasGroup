@@ -1,5 +1,59 @@
-window.onload = function () {
-    // Countdown Timer (5-hour countdown)
+// Function to scroll to a specific section
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+// Add click event listeners to clickable cards
+document.addEventListener('DOMContentLoaded', () => {
+    // Add event listener for the navigation links
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute('href').substring(1); // Remove the '#'
+            scrollToSection(targetId);
+        });
+        // Business Section Click Handling (using event delegation)
+        const businessSection = document.getElementById('businessSection');
+
+        businessSection.addEventListener('click', (event) => {
+            const clickedCard = event.target.closest('.clickable-card');
+
+            if (clickedCard) {
+                const option = clickedCard.dataset.option;
+                
+                // Trigger Systeme.io popup based on the option
+                if (option === 'Real Estate') {
+                    systemeio.showPopup('15065818'); // Replace with actual Systeme.io function
+                } else if (option === 'Telecommunications') {
+                    systemeio.showPopup('15065298');
+                } else if (option === 'Solar') {
+                    systemeio.showPopup('15065655');
+                    document.getElementById('overlay').style.display = 'block'; // Show the dummy overlay
+                }
+              // Then, display the corresponding form (you'll need to add logic for this)
+                    // Example:
+                    if (option === 'Real Estate') {
+                        document.getElementById('real-estate-form').style.display = 'block';
+                    } else if (option === 'Telecommunications') {
+                        document.getElementById('telecommunications-form').style.display = 'block';
+                    } else if (option === 'Solar') {
+                        document.getElementById('solar-form').style.display = 'block';
+                    }
+            }
+        })
+        
+        // Add an event listener to detect when the Systeme.io popup closes
+        document.addEventListener('systemePopupClose', () => {
+            console.log('Systeme.io popup closed.');
+            document.getElementById('overlay').style.display = 'none'; // Hide the dummy overlay
+        });
+    });
+
+    window.onload = function () {
+        // Countdown Timer (5-hour countdown)
         let countdownDate = new Date().getTime() + (5 * 60 * 60 * 1000);
         let timerInterval = setInterval(function () {
             let now = new Date().getTime();
@@ -8,101 +62,13 @@ window.onload = function () {
             let minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
             let seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
             document.getElementById('time').innerHTML = `${hours}:${minutes}:${seconds}`;
-    
+
             if (distance < 0) {
                 clearInterval(timerInterval);
                 document.getElementById('time').innerHTML = "Expired";
             }
         }, 1000);
-    
-        // Function to open the form popup and center it
-        function openForm(businessOption, businessUrl, element) {
-            const popupModal = document.getElementById('popupModal');
-            const overlay = document.getElementById('overlay');
-            const selectedOption = document.getElementById('selectedOption');
-            const businessUrlField = document.getElementById('businessUrl');
-    
-            // Set form values
-            selectedOption.value = businessOption;
-            businessUrlField.value = businessUrl;
-    
-            // if (selectedOption && businessUrlField) {
-            //     selectedOption.value = option;
-            //     businessUrlField.value = url;
-            // } else {
-            //     console.error('Form elements not found!');
-            //     return;
-            // }
-    
-            // Smooth scroll to the form's position
-            const rect = element.getBoundingClientRect();
-            const offsetY = rect.top + window.scrollY - window.innerHeight / 2 + popupModal.offsetHeight / 2;
-            window.scrollToSection({
-                top: offsetY,
-                behavior: 'smooth'
-            });
-    
-            // Example calculation, adjust as needed
-            const topPosition = window.innerHeight / 2 - popupModal.offsetHeight / 2;
-            const leftPosition = window.innerWidth / 2 - popupModal.offsetWidth / 2;
-    
-    
-    
-            // Position the modal centrally on the page when clicked
-            popupModal.style.top = `${window.scrollY + window.innerHeight / 2 - popupModal.offsetHeight / 2}px`;
-            popupModal.style.left = `${window.innerWidth / 2 - popupModal.offsetWidth / 2}px`;
-    
-            // Center the form
-            popupModal.style.top = '50%';
-            popupModal.style.left = '50%';
-            popupModal.style.transform = 'translate(-50%, -50%)';
-    
-    
-            // Focus on the first input field
-            // document.querySelector('input[name="name"]').focus();
-    
-            // Position the popup near the clicked card
-            //  const rect = element.getBoundingClientRect();
-            //  const topPosition = rect.top + window.scrollY + rect.height / 2 - popupModal.offsetHeight / 2; // Center vertically
-            //  const leftPosition = rect.left + window.scrollX + rect.width / 2 - popupModal.offsetWidth / 2; // Center horizontally
-    
-            // Set the position of the modal
-            popupModal.style.top = `${topPosition}px`;
-            popupModal.style.left = `${leftPosition}px`;
-    
-            // Show the popup and overlay
-            popupModal.style.display = 'block';
-            overlay.style.display = 'block';
-    
-            // Add a slight delay to ensure the inputs are focusable before setting them as required
-        setTimeout(() => {
-            // Enable required fields for form interaction
-            document.querySelectorAll('#signup-form input').forEach(input => {
-                input.required = true;
-            });
-          }, 100);  // Adjust the delay time if needed
-        }
-    
-    
-        // Function to close the form
-        function closeForm() {
-            const popupModal = document.getElementById('popupModal');
-            const overlay = document.getElementById('overlay');
-    
-    
-            // Disable required fields to avoid focus errors
-            document.querySelectorAll('#signup-form input').forEach(input => {
-                input.required = false;
-            });
-    
-            // Reset the form fields
-            document.getElementById('signup-form').reset();
-    
-            popupModal.style.display = 'none';
-            overlay.style.display = 'none';
-        }
-    
-    
+
         // Lazy Load Sections
         let lazySections = document.querySelectorAll('.lazy-section');
         let observer = new IntersectionObserver((entries) => {
@@ -114,38 +80,38 @@ window.onload = function () {
             });
         });
         lazySections.forEach(section => observer.observe(section));
-    
+
         // Initialize AOS (Animate on Scroll)
         AOS.init({
             duration: 1200,
             easing: 'ease-in-out',
             once: true,
         });
-    
-        // Show prompt message with fade-in
+
         function showPromptMessage() {
             const promptMessage = document.getElementById('promptMessage');
             if (promptMessage) {
                 promptMessage.style.display = 'block';
-                let opacity = 0;
+                promptMessage.style.opacity = 0;
+
                 const fadeInEffect = setInterval(() => {
-                    if (opacity >= 1) {
+                    if (promptMessage.style.opacity >= 1) {
                         clearInterval(fadeInEffect);
                     } else {
-                        promptMessage.style.opacity = opacity;
-                        opacity += 0.1;
+                        promptMessage.style.opacity = parseFloat(promptMessage.style.opacity) + 0.1;
                     }
                 }, 50);
-    
+
                 setTimeout(() => {
-                    promptMessage.style.display = 'none';
+                    hidePromptMessage(promptMessage);
                 }, 8000);
             }
         }
-    
-        // Initial Prompt after delay
-        setTimeout(showPromptMessage, 500);
-    
+
+        function hidePromptMessage(promptMessage) {
+            promptMessage.style.display = 'none';
+        }
+
         // Show prompt when business section is in view
         window.addEventListener('scroll', function () {
             const businessSection = document.getElementById('businessSection');
@@ -153,61 +119,28 @@ window.onload = function () {
                 showPromptMessage();
             }
         });
-    
-        // Form submission and redirection
-        document.getElementById('signup-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            const businessUrl = document.getElementById('businessUrl').value;
-            if (businessUrl) {
-                window.location.href = businessUrl;
-            } else {
-                alert('Error: No business option selected.');
-            }
-        });
-    
-        // Clickable Card Event to open form
-        // document.querySelectorAll('.clickable-card').forEach(card => {
-        //     card.addEventListener('click', (event) => {
-        //         event.preventDefault();
-        //         const option = card.getAttribute('data-option');
-        //         const url = card.getAttribute('data-url');
-    
-        //         if (option && url) {
-        //             openForm(option, url, card); // Pass the card element to openForm
-        //         } else {
-        //             console.error('Error: Missing data attributes for option or URL');
-        //         }
-        //     });
-        // });
-    
-        //Function to close the form popup
-        // function closeForm() {
-        //     document.getElementById('popupModal').style.display = 'none';
-        //     document.getElementById('overlay').style.display = 'none';
-        //  }
-    
-    
-        document.querySelectorAll('.clickable-card').forEach(card => {
-            card.addEventListener('click', (event) => {
-                event.preventDefault();
-                const option = card.getAttribute('data-option');
-                const url = card.getAttribute('data-url');
-    
-                if (option && url) {
-                    openForm(option, url, card);
-                } else {
-                    console.error('Error: Missing data attributes for option or URL');
-                }
-            });
-        });
-    
+
         // Overlay click to close form
-        document.getElementById('overlay').addEventListener('click', closeForm);
+        const overlay = document.getElementById('overlay');
+        if (overlay) {
+            overlay.addEventListener('click', closeForm);
+        }
 
         // Close button click to close form
-    const closeButton = document.querySelector('button[type="button"]');
-    if (closeButton) {
-        closeButton.addEventListener('click', closeForm);
-    }
+        const closeButton = document.querySelector('button[type="button"]');
+        if (closeButton) {
+            closeButton.addEventListener('click', closeForm);
+        }
+    };
+});
 
- };    
+   
+
+    
+
+
+
+
+
+
+
