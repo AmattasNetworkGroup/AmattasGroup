@@ -1,9 +1,17 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore build artifacts
+dist/
+
+# Ignore environment variables
+.env
+
+# Ignore SSH keys
+ssh
+ssh.pub
 sshkey
 sshkey.pub
 
-ssh
-ssh.pub
-
-
-ssh
-ssh.pub
+# Ignore other temporary or sensitive files
+*.log
