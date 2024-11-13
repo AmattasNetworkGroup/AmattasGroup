@@ -9,7 +9,7 @@
 /* Body and Background */
 body {
     background-color: #000000; /* Black background */
-    color: #FFD700; /* Yellow text */
+    color: #ffffff; /* Yellow text */
     line-height: 1.6;
     text-align: center;
 }
@@ -28,7 +28,7 @@ header h1 {
 
 header p {
     font-size: 1.2rem;
-    color: #FFD700;
+    color: #ffffff;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -36,18 +36,18 @@ header p {
 /* Presentation Video Section */
 section {
     padding: 30px 20px;
-    color: #FFD700;
+    color: #ffffff;
 }
 
 section h2 {
     font-size: 2rem;
-    color: #FFD700;
+    color: #cc00ff;
     margin-bottom: 10px;
 }
 
 section p {
     font-size: 1rem;
-    color: #FFD700;
+    color: #ffffff;
     margin: 10px auto;
     max-width: 800px;
 }
@@ -115,13 +115,13 @@ a.whatsapp-button:hover {
 /* Additional Elements for Engagement */
 .section-title {
     font-size: 2rem;
-    color: #FFD700;
+    color: #ffffff;
     margin: 20px 0;
 }
 
 .section-description {
     font-size: 1rem;
-    color: #FFD700;
+    color: #ffffff;
     max-width: 700px;
     margin: 0 auto;
 }

@@ -378,3 +378,11 @@ footer {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
   }
   
+
+  #quick-benefits ul li {
+    color: #ffffff;
+}
+
+#why-join-us ol {
+    color: #ffffff;
+}
