@@ -386,3 +386,49 @@ footer {
 #why-join-us ol {
     color: #ffffff;
 }
+
+ /* Enhanced responsive styles */
+ @media (max-width: 768px) {
+    .grid-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 90%;
+        max-width: none;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .subtext {
+        font-size: 16px;
+    }
+
+    .header-buttons button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #my-story p, #why-join-us p, #mission p {
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 14px;
+    }
+}
