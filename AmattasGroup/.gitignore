@@ -15,3 +15,9 @@ sshkey.pub
 
 # Ignore other temporary or sensitive files
 *.log
+
+# Ignore everything in dist folder
+dist/*
+
+# But not dist/bundle.js
+!dist/bundle.js
