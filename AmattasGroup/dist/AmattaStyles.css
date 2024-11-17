@@ -76,6 +76,8 @@ header {
     gap: 20px;
     padding: 20px;
     justify-content: center;
+    max-width: 100%; /* Ensure containers do not overflow */
+    box-sizing: border-box; /* Account for padding in widths */
 }
 
 .service-card {
@@ -95,6 +97,9 @@ header {
 .service-card img {
     width: 100%;
     border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .service-card h3 {
@@ -432,3 +437,11 @@ footer {
         font-size: 14px;
     }
 }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
