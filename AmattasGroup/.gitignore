@@ -21,3 +21,6 @@ dist/*
 
 # But not dist/bundle.js
 !dist/bundle.js
+
+# dist/
+
