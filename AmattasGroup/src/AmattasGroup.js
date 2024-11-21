@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 1200,
         easing: 'ease-in-out',
         once: true,
+        disable: 'mobile',
+        offset: 50 // Adjust this value if needed
     });
 
     function showPromptMessage() {
@@ -84,6 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+function scrollToSection(targetId) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
     function hidePromptMessage(promptMessage) {
         promptMessage.style.display = 'none';
     }
@@ -135,4 +143,3 @@ document.addEventListener('DOMContentLoaded', () => {
         closeButton.addEventListener('click', closeForm);
     }
 });
-
