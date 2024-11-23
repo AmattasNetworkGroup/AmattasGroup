@@ -79,27 +79,6 @@ p, ul, ol {
     border-radius: 5px;
 }
 
-/* Timer Section */
-.timer-section {
-    text-align: center;
-    padding: 2rem;
-    background-color: #000000;
-    color: #fa0303;
-}
-
-/* Timer Styling */
-#timer {
-    font-weight: bold;
-    font-size: 2rem;          /* Increase font size */
-    color: #ffffff;           /* Set text color to white */
-    background-color: #ff0000;   /* Dark background */
-    padding: 15px 30px;       /* Add padding around text */
-    border-radius: 10px;      /* Rounded corners */
-    text-align: center;       /* Center the text */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow for a 3D effect */
-    width: fit-content;       /* Adjust width based on content */
-    margin: 0 auto;           /* Center on the page */
-}
 
 
 /* Offer and Content Sections */
@@ -209,3 +188,14 @@ ul, ol {
     }
 }
 
+
+.offer-section {
+    counter-reset: h3-counter;
+  }
+  
+  .offer-section h3::before {
+    counter-increment: h3-counter;
+    content: counter(h3-counter) ". ";
+  }
+  
+  

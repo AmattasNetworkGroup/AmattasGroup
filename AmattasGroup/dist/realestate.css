@@ -88,24 +88,6 @@ a.whatsapp-button:hover {
     background-color: #b30000; /* Darker blue on hover */
 }
 
-/* Timer & Limited-Time Offer */
-.timer-section {
-    margin-top: 20px;
-    padding: 20px;
-}
-
-.timer-section h3 {
-    font-size: 1.8rem;
-    color: #cc00ff;
-    margin-bottom: 10px;
-}
-
-#timer {
-    font-size: 1.5rem;
-    color: #FF4500; /* Red for timer */
-    font-weight: bold;
-}
-
 .offer-text {
     color: #cc00ff;
     font-size: 1rem;
@@ -219,3 +201,10 @@ a.whatsapp-button:hover {
     transform: scale(0.95);
     transition: transform 0.2s ease;
 }
+
+.left-align {
+    text-align: left;  /* Aligns the text within the div to the right */
+    margin-left: auto; /* Pushes the div to the right */
+    width: fit-content; /* Ensures the div takes up only the necessary width */
+  }
+  

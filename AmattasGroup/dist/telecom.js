@@ -1,29 +1,29 @@
 // Countdown Timer for the Exclusive Offer
-document.addEventListener('DOMContentLoaded', () => {
-    const timerElement = document.getElementById('timer');
-    const targetDate = new Date(); 
-    targetDate.setHours(targetDate.getHours() + 5); // Countdown for 5 hours
+// document.addEventListener('DOMContentLoaded', () => {
+//     const timerElement = document.getElementById('timer');
+//     const targetDate = new Date(); 
+//     targetDate.setHours(targetDate.getHours() + 5); // Countdown for 5 hours
 
-    function updateTimer() {
-        const now = new Date().getTime();
-        const distance = targetDate - now;
+//     function updateTimer() {
+//         const now = new Date().getTime();
+//         const distance = targetDate - now;
 
-        if (distance < 0) {
-            timerElement.innerHTML = "Offer expired";
-            clearInterval(timerInterval);
-            return;
-        }
+//         if (distance < 0) {
+//             timerElement.innerHTML = "Offer expired";
+//             clearInterval(timerInterval);
+//             return;
+//         }
 
-        const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-        const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-        const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
+//         const hours = String(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+//         const minutes = String(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+//         const seconds = String(Math.floor((distance % (1000 * 60)) / 1000)).padStart(2, '0');
 
-        timerElement.innerHTML = `${hours}:${minutes}:${seconds}`;
-    }
+//         timerElement.innerHTML = `${hours}:${minutes}:${seconds}`;
+//     }
 
-    const timerInterval = setInterval(updateTimer, 1000);
-    updateTimer(); // Initial call
-});
+//     const timerInterval = setInterval(updateTimer, 1000);
+//     updateTimer(); // Initial call
+// });
 
 
 // Lazy Loading for Sections and Images
