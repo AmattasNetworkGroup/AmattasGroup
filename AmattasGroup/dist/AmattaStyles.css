@@ -547,4 +547,16 @@ footer {
     background-color: rgba(0, 0, 0, 0.7);; /* Darker background */
 }
 
+#logo {
+    width: 150px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline spacing issues */
+    margin: 0 auto; /* Center the logo */
+}
+
+@media (max-width: 768px) {
+    #logo {
+        width: 100px;
+    }
+}
 
