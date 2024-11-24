@@ -118,3 +118,17 @@ footer a:hover {
     color: #FF4500;
     text-decoration: underline;
 }
+
+
+#logo {
+    width: 150px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline spacing issues */
+    margin: 0 auto; /* Center the logo */
+}
+
+@media (max-width: 768px) {
+    #logo {
+        width: 100px;
+    }
+}
