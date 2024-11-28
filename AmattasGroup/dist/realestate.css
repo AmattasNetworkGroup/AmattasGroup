@@ -3,37 +3,39 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Setting font-family here improves consistency */
 }
 
-/* Body and Background */
 body {
-    background-color: #000000; /* Black background */
-    color: #ffffff; /* Yellow text */
+    background-color: #000000;
+    color: #ffffff;
     line-height: 1.6;
-    text-align: center;
+    text-align: center; /* Default alignment to center */
+    max-width: 100%; /* Prevents overflow on very large screens */
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    margin: 0 auto; /* Center the body on the page */
 }
 
-/* Header Section - Welcome Message */
+
+/* Header Section */
 header {
     padding: 40px;
-    background-color: #000000; /* Dark gray to highlight header */
+    background-color: #302e2e;
 }
 
 header h1 {
     font-size: 2.5rem;
-    color: #cc00ff; /* Yellow text */
+    color: #cc00ff;
     margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.2rem;
-    color: #ffffff;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centered paragraph text */
 }
 
-/* Presentation Video Section */
+/* Section Styles (Generic) */
 section {
     padding: 30px 20px;
     color: #ffffff;
@@ -47,19 +49,34 @@ section h2 {
 
 section p {
     font-size: 1rem;
-    color: #ffffff;
     margin: 10px auto;
-    max-width: 800px;
+    max-width: 800px;  /* Limit paragraph width for better readability */
 }
 
-video {
+/* Video Container & Videos */
+.video-container { /* Good practice to wrap videos in a container */
+    position: relative;
+    width: 30%;
+    height: auto;
+    max-width: 960px; /* Or a suitable max-width */
+    margin: 20px auto; /* Center the container */
+    padding-top: 56.25%; /* Aspect ratio 16:9 */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.video-container video,  .video-container iframe { /* Include iframe for embeds */
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 800px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(216, 185, 9, 0.945);
+    height: 100%;
+    object-fit: cover; /* Ensures video/image covers while maintaining ratio */
+    display: block; /* Prevents extra space below the video */
 }
 
-/* WhatsApp Group CTA */
+
+/* WhatsApp Section */
 .whatsapp-section {
     padding: 20px;
     margin-top: 20px;
@@ -67,156 +84,105 @@ video {
 
 .whatsapp-note {
     font-size: 1rem;
-    color: #FF4500; /* Red text to emphasize free business */
+    color: #FF4500;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-a.whatsapp-button {
+
+a.whatsapp-button { /* Use 'a' selector only if it's an actual link */
     display: inline-block;
     padding: 15px 30px;
     font-size: 1.1rem;
     font-weight: bold;
-    color: #cdd4dd; /* White text for contrast */
-    background-color: #007BFF; /* Blue button */
+    color: #cdd4dd;
+    background-color: #007BFF;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
 a.whatsapp-button:hover {
-    background-color: #b30000; /* Darker blue on hover */
+    background-color: #b30000;
 }
 
-.offer-text {
-    color: #cc00ff;
-    font-size: 1rem;
-    margin-top: 10px;
+
+.gallery-container {  /* Gallery container */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    max-width: 1200px; 
+    margin: 0 auto; /* Center on page */
+    padding: 20px;
 }
 
-/* Additional Elements for Engagement */
-.section-title {
-    font-size: 2rem;
-    color: #ffffff;
-    margin: 20px 0;
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Prevents image overflow */
 }
 
-.section-description {
-    font-size: 1rem;
-    color: #ffffff;
-    max-width: 700px;
-    margin: 0 auto;
+.gallery-image img { /* Image within the container */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;  /* Good practice */
+    object-fit: cover; /* For image fit options */
 }
+
+
+.left-align {
+    text-align: left;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2rem;
-    }
-    header p, section p, .section-description {
-        font-size: 1rem;
-    }
+    header h1 { font-size: 2rem; }
+    header p, section p { font-size: 1rem; }
     a.whatsapp-button {
         padding: 12px 24px;
         font-size: 1rem;
     }
+
+    .gallery-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
 }
 
 
-/* Clicked Animation for Button */
-.clicked-animation {
-    transform: scale(1.05);
-    background-color: #FF4500; /* Flash of red to highlight */
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
 
-
-/* Timer Box Styling */
-.timer-box {
-    display: inline-block;  /* Keeps box compact around the timer */
-    padding: 15px 30px;
-    margin-top: 10px;
-    border: 2px solid #FF4500; /* Border color - red in this case */
-    border-radius: 8px;
-    background-color: #333333; /* Dark background to match brand style */
-    color: #FFD700; /* Yellow text for visibility */
-}
-
-#timer {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-
-.real-estate-content-section {
-    text-align: center;
-    padding: 30px;
-}
-
-.real-estate-content-section h2, .real-estate-content-section p, .real-estate-content-section ul {
-    margin-bottom: 10px;
-}
-
-.gallery-container, .video-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.gallery-image, .video-item {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.join-button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #FF4500;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-
-/* Lazy load animation for sections */
-.lazy-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.lazy-section.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* WhatsApp button click animation */
-.clicked-animation {
-    transform: scale(0.95);
-    transition: transform 0.2s ease;
-}
-
-.left-align {
-    text-align: left;  /* Aligns the text within the div to the right */
-    margin-left: auto; /* Pushes the div to the right */
-    width: fit-content; /* Ensures the div takes up only the necessary width */
-  }
-  
-  #logo {
-    width: 150px; /* Adjust as needed */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Prevent inline spacing issues */
-    margin: 0 auto; /* Center the logo */
+/* Logo Styling */
+#logo {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
-    #logo {
-        width: 100px;
+    #logo { width: 100px; }
+}
+
+/* Media Query for Smaller Screens (Adjust as needed) */
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 100%;  /* Full width on smaller screens */
+        padding-top: 60%; /* Adjust aspect ratio if required for mobile */
     }
+}
+
+/* Initial state: Hide the section and set up for animation */
+.lazy-section {
+    opacity: 0;
+    transform: translateY(20px); /* Initial offset for slide-up effect */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+/* State after the section is visible: Animate in */
+.lazy-section.animate-in {
+    opacity: 1;
+    transform: translateY(0); /* Slide up to final position */
 }

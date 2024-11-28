@@ -1,38 +1,4 @@
-// Countdown Timer Functionality
-// document.addEventListener('DOMContentLoaded', () => {
-//     const timerDisplay = document.getElementById("timer");
-//     let timeRemaining = 3 * 60 * 60; // Set timer (in seconds) - here, set to 3 hours (3 * 60 * 60)
-
-//     // Function to update the timer every second
-//     function startCountdown() {
-//         const countdownInterval = setInterval(() => {
-//             let hours = Math.floor(timeRemaining / 3600);
-//             let minutes = Math.floor((timeRemaining % 3600) / 60);
-//             let seconds = timeRemaining % 60;
-
-//             // Format the time display to always show two digits
-//             hours = hours < 10 ? '0' + hours : hours;
-//             minutes = minutes < 10 ? '0' + minutes : minutes;
-//             seconds = seconds < 10 ? '0' + seconds : seconds;
-
-//             // Display the formatted time
-//             timerDisplay.textContent = `${hours}:${minutes}:${seconds}`;
-
-//             // Decrease time remaining by one second
-//             timeRemaining--;
-
-//             // Stop the countdown when time is up
-//             if (timeRemaining < 0) {
-//                 clearInterval(countdownInterval);
-//                 timerDisplay.textContent = "00:00:00"; // Display when time is up
-//                 alert("Time's up! Please join our WhatsApp group for exclusive benefits.");
-//             }
-//         }, 1000); // Update every second
-//     }
-
-//     startCountdown(); // Start the countdown timer
-
-    // Lazy Loading Animation for Sections
+// Lazy Loading Animation for Sections
     const lazySections = document.querySelectorAll('.lazy-section');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
