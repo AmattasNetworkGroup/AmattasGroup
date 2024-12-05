@@ -560,3 +560,14 @@ footer {
     }
 }
 
+#systemeio-iframe-1730984003638 {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the iframe */
+    width: 80%; /* Example width */
+    height: 600px;  /* Example Height: Adjust as needed*/
+    z-index: 1000; /* Above the overlay */
+    border: none; /* optional: remove any border on the iframe */
+}

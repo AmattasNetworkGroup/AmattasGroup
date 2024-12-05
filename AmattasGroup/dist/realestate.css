@@ -56,11 +56,9 @@ section p {
 /* Video Container & Videos */
 .video-container { /* Good practice to wrap videos in a container */
     position: relative;
-    width: 30%;
-    height: auto;
+    width: 100%;
     max-width: 960px; /* Or a suitable max-width */
     margin: 20px auto; /* Center the container */
-    padding-top: 56.25%; /* Aspect ratio 16:9 */
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -73,6 +71,7 @@ section p {
     height: 100%;
     object-fit: cover; /* Ensures video/image covers while maintaining ratio */
     display: block; /* Prevents extra space below the video */
+    aspect-ratio: 16 / 9; /* Maintain 16:9 - Adjust if different */
 }
 
 
@@ -185,4 +184,15 @@ a.whatsapp-button:hover {
 .lazy-section.animate-in {
     opacity: 1;
     transform: translateY(0); /* Slide up to final position */
+}
+
+/* Media Query for Smaller Screens - Improved */
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 100%; 
+    }
+
+    .video-container video, .video-container iframe {
+        aspect-ratio: 16/9; /* Maintain the aspect ratio on mobile */
+    }
 }

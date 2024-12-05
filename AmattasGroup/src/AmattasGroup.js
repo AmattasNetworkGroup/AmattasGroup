@@ -45,6 +45,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+     // Overlay and Systeme.io form handling
+     const overlay = document.getElementById('overlay');
+    const clickMeButtons = document.querySelectorAll('.systeme-show-popup-15513494, .systeme-show-popup-15513236, .systeme-show-popup-15513637');
+
+    if (overlay) {
+        let systemeIframe = null;
+
+        function closeForm() {
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+
+            if (systemeIframe) {
+              systemeIframe.style.display = 'none'; // Hide iframe if exists
+              systemeIframe = null; // Reset the reference after closing
+            }
+        }
+
+
+        clickMeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                document.body.style.overflow = 'hidden';
+                overlay.style.display = 'block';
+
+                // Using systemeio API to show popup and getting reference to its iframe
+                const popupId = button.dataset.popupId; // Use data attribute for popup ID
+
+
+                if (popupId) {  // Check if data-popup-id is defined on your buttons 
+                    systemeio.showPopup(popupId).then((iframe) => {
+                       systemeIframe = iframe; //Store the iframe reference
+                    });
+                } else {
+                    console.error("No popup ID found on the button!");
+                }
+
+            });
+        });
+
+
+        overlay.addEventListener('click', closeForm);
+
+
+        document.addEventListener('systemePopupClose', closeForm); // Using Systeme.io's event!
+
+    } else {
+        console.error("Overlay element not found!");
+    }
+
     // Lazy Load Sections
     let lazySections = document.querySelectorAll('.lazy-section');
     let observer = new IntersectionObserver((entries) => {
@@ -132,10 +180,10 @@ function scrollToSection(targetId) {
     });    
 
     // Overlay click to close form
-    const overlay = document.getElementById('overlay');
-    if (overlay) {
-        overlay.addEventListener('click', closeForm);
-    }
+    // const overlay = document.getElementById('overlay');
+    // if (overlay) {
+    //     overlay.addEventListener('click', closeForm);
+    // }
 
     // Close button click to close form
     const closeButton = document.querySelector('button[type="button"]');
