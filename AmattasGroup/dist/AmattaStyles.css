@@ -571,3 +571,28 @@ footer {
     z-index: 1000; /* Above the overlay */
     border: none; /* optional: remove any border on the iframe */
 }
+
+
+.notice-card {
+    width: 300px; /* Adjust as needed for size */
+    height: 300px; /* Ensures it's square */
+    margin: 20px auto; /* Center horizontally */
+    padding: 20px; /* Adds space inside the box */
+    text-align: center; /* Centers text */
+    background-color: #1a1a1a; /* Dark background */
+    color: #ffd700; /* Yellow text (gold) */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Lifted shadow */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    font-size: 18px; /* Text size */
+    font-weight: bold; /* Bold text */
+    line-height: 1.5; /* Improves readability */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover effect */
+}
+
+.notice-card:hover {
+    transform: translateY(-5px); /* Lifts the box slightly on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Stronger shadow on hover */
+}
