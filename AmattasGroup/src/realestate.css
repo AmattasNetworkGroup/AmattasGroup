@@ -1,0 +1,216 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif; /* Setting font-family here improves consistency */
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1.6;
+    text-align: center; /* Default alignment to center */
+    max-width: 100%; /* Prevents overflow on very large screens */
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    margin: 0 auto; /* Center the body on the page */
+}
+
+
+/* Header Section */
+header {
+    padding: 40px;
+    background-color: #302e2e;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #cc00ff;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto; /* Centered paragraph text */
+}
+
+/* Section Styles (Generic) */
+section {
+    padding: 30px 20px;
+    color: #ffffff;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #cc00ff;
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 1rem;
+    margin: 10px auto;
+    max-width: 800px;  /* Limit paragraph width for better readability */
+}
+
+/* Video Container & Videos */
+.video-container { /* Good practice to wrap videos in a container */
+    position: relative;
+    width: 100%;
+    max-width: 960px; /* Or a suitable max-width */
+    margin: 20px auto; /* Center the container */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.video-container video,  .video-container iframe { /* Include iframe for embeds */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video/image covers while maintaining ratio */
+    display: block; /* Prevents extra space below the video */
+    aspect-ratio: 16 / 9; /* Maintain 16:9 - Adjust if different */
+}
+
+
+/* WhatsApp Section */
+.whatsapp-section {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.whatsapp-note {
+    font-size: 1rem;
+    color: #FF4500;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+a.whatsapp-button { /* Use 'a' selector only if it's an actual link */
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #cdd4dd;
+    background-color: #007BFF;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+a.whatsapp-button:hover {
+    background-color: #b30000;
+}
+
+
+.gallery-container {  /* Gallery container */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    max-width: 1200px; 
+    margin: 0 auto; /* Center on page */
+    padding: 20px;
+}
+
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Prevents image overflow */
+}
+
+.gallery-image img { /* Image within the container */
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block;  /* Good practice */
+    object-fit: cover; /* For image fit options */
+}
+
+
+.left-align {
+    text-align: left;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 { font-size: 2rem; }
+    header p, section p { font-size: 1rem; }
+    a.whatsapp-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
+
+
+
+/* Logo Styling */
+#logo {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    #logo { width: 100px; }
+}
+
+/* Media Query for Smaller Screens (Adjust as needed) */
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 100%;  /* Full width on smaller screens */
+        padding-top: 60%; /* Adjust aspect ratio if required for mobile */
+    }
+}
+
+/* Initial state: Hide the section and set up for animation */
+.lazy-section {
+    opacity: 0;
+    transform: translateY(20px); /* Initial offset for slide-up effect */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+/* State after the section is visible: Animate in */
+.lazy-section.animate-in {
+    opacity: 1;
+    transform: translateY(0); /* Slide up to final position */
+}
+
+/* Media Query for Smaller Screens - Improved */
+@media (max-width: 768px) {
+    .video-container {
+        max-width: 100%; 
+    }
+
+    .video-container video, .video-container iframe {
+        aspect-ratio: 16/9; /* Maintain the aspect ratio on mobile */
+    }
+}
+
+
+.join-button {
+    display: inline-block;  /* Makes the button behave like a block element, so you can control width, padding, etc. */
+    padding: 15px 30px;   /* Adds padding around the text */
+    font-size: 18px;       /* Sets the font size */
+    color: white;           /* Text color */
+    background-color: #007bff; /* Button background color */
+    border: none;         /* Removes default border */
+    border-radius: 5px;    /* Rounds the button corners */
+    text-decoration: none; /* Removes underline from link */
+    cursor: pointer;       /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.join-button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}

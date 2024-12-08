@@ -1,0 +1,598 @@
+/* General Styles */
+
+* {
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    font-size: 16px; /* Base font size */
+    background-color: #1A1A1A;
+    color: #f0ba09;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* or overflow: auto; if you need horizontal scroll as well */
+    height: 100vh; /* Ensures the body takes up the full viewport height */
+    overflow-y: auto;
+    display: flex;      /* Enables flexbox for vertical layout */
+    flex-direction: column; /* Stacks elements vertically */
+}
+
+/* 3. CRITICAL: Explicitly control widths on ALL containers and content elements */
+body > * {  /*  Targets all direct children of <body> */
+    width: 100%;  /* Occupy full width of parent */
+    max-width: 100%; /*  Absolutely critical to prevent overflow */
+    margin-left: auto;
+    margin-right: auto; /*  Center block-level elements */
+}
+
+h1, h2, h3 { 
+    font-weight: bold;
+    color: #f0ba09;
+}
+
+p {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #f0ba09;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff0000;
+}
+
+/* Header Section */
+
+
+header {
+    padding: 20px 0; /* Reduce or remove fixed padding, use % or vh units */
+    position: relative;
+    padding-bottom: 40px;
+    text-align: center; 
+}
+
+.subtext {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.header-buttons button {
+    background-color: #f0ba09;
+    color: #1A1A1A;
+    padding: 10px 20px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-buttons button:hover {
+    background-color: #ff0000;
+}
+
+/* Centering Timer */
+.timer {
+    position: absolute;
+    top: 200px; /* Position from the top of the header */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #FF0000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 200px;
+    z-index: 10; /* Ensure it's above other elements */
+    width: auto;          /* Key: Prevents the timer from being too wide */
+    max-width: 90%;     /* Adjust as needed. Ensures the timer fits within the header */
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.offer-story-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Ensure parent container fills its width */
+}
+
+.business-offer {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px; /* Adjust value as needed */
+}
+
+/* Card Container - Make it responsive */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%; /* Occupy full width of parent */
+    box-sizing: border-box; /* Include padding in width calculation */
+    margin-top: 20px;
+}
+
+.service-card {
+    flex: 1 1 0; /* Allows cards to shrink and grow equally */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px; /* Adjust for smaller screens */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-card img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.service-card h3 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.service-card button {
+    background-color: #f0ba09;
+    color: #1A1A1A;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.service-card button:hover {
+    background-color: #ff0000;
+}
+
+/* Overlay styling */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 999;
+    backdrop-filter: blur(4px);
+}
+
+/* Popup Modal Styling */
+#popupModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 20px;
+    max-width: 90%;
+    width: 400px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+/* Responsive adjustments for modal on small screens */
+@media (max-width: 600px) {
+    #popupModal {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #f0ba09;
+}
+
+.close-btn:hover {
+    color: #ff0000;
+}
+
+/* Form styling for a polished look */
+#signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#signup-form input[type="text"],
+#signup-form input[type="email"],
+#signup-form input[type="tel"],
+#signup-form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%; /* Make form elements responsive */
+    box-sizing: border-box;
+}
+
+#signup-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#signup-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 90%;  /* Or a specific pixel value */
+    width: 100%;
+    margin: 0 auto;   /* Center the container */
+    box-sizing: border-box;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.below-image-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.below-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.text-content {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .text-content {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        padding: 10px;
+        gap: 10px;
+    }
+    .below-image-container {
+        max-width: 90%;
+    }
+}
+
+/* Section Styles */
+section {
+    padding: 40px 20px;
+}
+
+.outlined-section {
+    padding: 40px;
+    border: 2px solid #f0ba09;
+    border-radius: 10px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.reveal-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 100%; /* Make reveal boxes stack vertically on small screens */
+    max-width: 45%;
+    box-sizing: border-box;
+}
+
+/* Footer */
+footer {
+    background-color: #1A1A1A;
+    padding: 20px;
+    text-align: center;
+    color: #f0ba09;
+}
+
+.social-media a {
+    color: #f0ba09;
+    margin: 0 10px;
+}
+
+.social-media a:hover {
+    color: #ff0000;
+}
+
+/* Lazy Load Section */
+.lazy-section {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .timer {
+        font-size: 18px;
+    }
+
+    #popupModal {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .close-btn {
+        font-size: 18px;
+    }
+}
+
+/* Accessibility-focused adjustments */
+#submit-button:focus, .header-buttons button:focus {
+    outline: 2px solid #ff0000;
+}
+
+/* Mobile adjustments for timer */
+@media (max-width: 600px) {
+    .timer {
+        font-size: 16px;
+        padding: 8px;
+        border-radius: 5px;
+    }
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+ 
+#signup-form input,
+#signup-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#signup-form input[type="text"],
+#signup-form input[type="email"],
+#signup-form input[type="number"] {
+    height: 40px; /* Ensure consistent height */
+    font-size: 16px;
+}
+
+#signup-form button {
+    background-color: #1606f8; /* Blue color */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#signup-form button:hover {
+    background-color: #a80707; /* Darker blue on hover */
+}
+
+
+#popup-element-id { display: none !important; }
+
+.service-card a { /* Target the <a> tag within the service card */
+    display: inline-block; /* Make it a block-level element for styling */
+    background-color: #bd0606; /* Example: Bright pink background */
+    color: white; /* White text */
+    border: 2px solid #f0ba09; /* Yellow border */
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-weight: bold;
+    text-decoration: none; /* Remove default link underline */
+    margin: 20px auto; /* Center horizontally and add margins */
+  }
+  
+  .service-card a:hover {
+    background-color: #f0ba09; /* Yellow background on hover */
+    color: #1A1A1A; /* Dark text on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+  }
+  
+
+  #quick-benefits ul li {
+    color: #ffffff;
+}
+
+#why-join-us ol {
+    color: #ffffff;
+}
+
+ /* Enhanced responsive styles */
+ @media (max-width: 768px) {
+    .grid-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 90%;
+        max-width: none;
+    }
+
+    h1 { font-size: 2.5rem; }
+
+    h2 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 16px;
+    }
+    #quick-benefits ul li, #why-join-us ul li {
+        font-size: 14px;
+    }
+
+    .subtext {
+        font-size: 16px;
+    }
+
+    .header-buttons button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #my-story p, #why-join-us p, #mission p {
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 14px;
+    }
+}
+
+/* body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+ 
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) { /* Example media query - adjust breakpoint as needed */
+    .reveal-box {
+          max-width: 100%;
+      }
+  }
+  
+  
+  /* Remove any !important from display properties as they can make responsive design harder */
+  #popup-element-id { display: none; }
+
+  .hero-background {
+    width: 100%; /* Ensure parent container fills its width */
+    height: 400px; /* Example: Use a fixed height or min-height */
+    /* ... other styles ... */
+}
+
+#promptMessage h2{
+    /* ...other styles ... */
+    color: #FF0000; /* Brighter red */
+    background-color: rgba(0, 0, 0, 0.7);; /* Darker background */
+}
+
+#logo {
+    width: 150px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline spacing issues */
+    margin: 0 auto; /* Center the logo */
+}
+
+@media (max-width: 768px) {
+    #logo {
+        width: 100px;
+    }
+}
+
+#systemeio-iframe-1730984003638 {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the iframe */
+    width: 80%; /* Example width */
+    height: 600px;  /* Example Height: Adjust as needed*/
+    z-index: 1000; /* Above the overlay */
+    border: none; /* optional: remove any border on the iframe */
+}
+
+
+.notice-card {
+    width: 300px; /* Adjust as needed for size */
+    height: 300px; /* Ensures it's square */
+    margin: 20px auto; /* Center horizontally */
+    padding: 20px; /* Adds space inside the box */
+    text-align: center; /* Centers text */
+    background-color: #1a1a1a; /* Dark background */
+    color: #ffd700; /* Yellow text (gold) */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Lifted shadow */
+    display: flex; /* Flexbox for centering */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+    font-size: 18px; /* Text size */
+    font-weight: bold; /* Bold text */
+    line-height: 1.5; /* Improves readability */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation for hover effect */
+}
+
+.notice-card:hover {
+    transform: translateY(-5px); /* Lifts the box slightly on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Stronger shadow on hover */
+}

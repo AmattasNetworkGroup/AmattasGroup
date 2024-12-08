@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1A1A1A;
+    color: #FFD700;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: #FFD700;
+    margin: 0;
+}
+
+p {
+    color: #ddd;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 15px auto;
+    padding: 0 10px;
+    text-align: center;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+header .free-notice {
+    color: #FF4500;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Video Presentation Section */
+.video-section {
+    padding: 30px;
+    text-align: center;
+}
+
+.video-section h2 {
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.video-section p {
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.video-container {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    display: inline-block;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(216, 185, 9, 0.9);
+}
+
+video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* About Solar Business Section */
+.about-section {
+    padding: 30px;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    color: #ddd;
+    margin-top: 10px;
+}
+
+/* WhatsApp Button Section */
+.whatsapp-section {
+    text-align: center;
+    padding: 30px;
+}
+
+.whatsapp-button {
+    display: inline-block;
+    width: 80%;
+    max-width: 300px;
+    padding: 15px;
+    color: #fff;
+    background-color: #007BFF;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+    color: #FFD700;
+}
+
+footer a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #FF4500;
+    text-decoration: underline;
+}
+
+
+#logo {
+    width: 150px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline spacing issues */
+    margin: 0 auto; /* Center the logo */
+}
+
+@media (max-width: 768px) {
+    #logo {
+        width: 100px;
+    }
+}
