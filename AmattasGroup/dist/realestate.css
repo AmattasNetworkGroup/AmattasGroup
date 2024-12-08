@@ -196,3 +196,21 @@ a.whatsapp-button:hover {
         aspect-ratio: 16/9; /* Maintain the aspect ratio on mobile */
     }
 }
+
+
+.join-button {
+    display: inline-block;  /* Makes the button behave like a block element, so you can control width, padding, etc. */
+    padding: 15px 30px;   /* Adds padding around the text */
+    font-size: 18px;       /* Sets the font size */
+    color: white;           /* Text color */
+    background-color: #007bff; /* Button background color */
+    border: none;         /* Removes default border */
+    border-radius: 5px;    /* Rounds the button corners */
+    text-decoration: none; /* Removes underline from link */
+    cursor: pointer;       /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.join-button:hover {
+    background-color: #0056b3; /* Darker background color on hover */
+}
