@@ -46,57 +46,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
      // Overlay and Systeme.io form handling
-     const overlay = document.getElementById('overlay');
-     const clickMeButtons = document.querySelectorAll('.systeme-show-popup-15513494, .systeme-show-popup-15513236, .systeme-show-popup-15513637');
+    //  const overlay = document.getElementById('overlay');
+    //  const clickMeButtons = document.querySelectorAll('.systeme-show-popup-15513494, .systeme-show-popup-15513236, .systeme-show-popup-15513637');
      
-     if (overlay) {
-         let systemeIframe = null;
+    //  if (overlay) {
+    //      let systemeIframe = null;
      
-         function closeForm() {
-             overlay.style.display = 'none';
-             document.body.style.overflow = 'auto'; 
+    //      function closeForm() {
+    //          overlay.style.display = 'none';
+    //          document.body.style.overflow = 'auto'; 
      
-             if (systemeIframe) {
-                 systemeIframe.style.display = 'none'; 
-                 systemeIframe = null; 
-             }
-         }
+    //          if (systemeIframe) {
+    //              systemeIframe.style.display = 'none'; 
+    //              systemeIframe = null; 
+    //          }
+    //      }
      
-         clickMeButtons.forEach(button => {
-             button.addEventListener('click', () => {
-                 document.body.style.overflow = 'hidden';
-                 overlay.style.display = 'block';
+    //      clickMeButtons.forEach(button => {
+    //          button.addEventListener('click', () => {
+    //              document.body.style.overflow = 'hidden';
+    //              overlay.style.display = 'block';
      
-                 const popupId = button.dataset.popupId;
+    //              const popupId = button.dataset.popupId;
      
-                 if (popupId) {  
-                     systemeio.showPopup(popupId).then((iframe) => {
-                        systemeIframe = iframe; 
-                     });
-                 } else {
-                     console.error("No popup ID found on the button!");
-                 }
+    //              if (popupId) {  
+    //                  systemeio.showPopup(popupId).then((iframe) => {
+    //                     systemeIframe = iframe; 
+    //                  });
+    //              } else {
+    //                  console.error("No popup ID found on the button!");
+    //              }
      
-             });
-         });
+    //          });
+    //      });
      
-         overlay.addEventListener('click', (event) => {
-             // Check if the click target is within the systemeIframe
-             if (systemeIframe && systemeIframe.contains(event.target)) {
-                 // Click is inside the iframe, do nothing
-                return; 
-             } else {
-                // Click is outside the iframe, close the form
-                closeForm();
-             }
-         });
+    //      overlay.addEventListener('click', (event) => {
+    //          // Check if the click target is within the systemeIframe
+    //          if (systemeIframe && systemeIframe.contains(event.target)) {
+    //              // Click is inside the iframe, do nothing
+    //             return; 
+    //          } else {
+    //             // Click is outside the iframe, close the form
+    //             closeForm();
+    //          }
+    //      });
      
      
-         document.addEventListener('systemePopupClose', closeForm); 
+    //      document.addEventListener('systemePopupClose', closeForm); 
      
-     } else {
-         console.error("Overlay element not found!");
-     }
+    //  } else {
+    //      console.error("Overlay element not found!");
+    //  }
      
 
     // Lazy Load Sections
@@ -197,3 +197,13 @@ function scrollToSection(targetId) {
         closeButton.addEventListener('click', closeForm);
     }
 });
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then((registration) => console.log('Service Worker registered', registration))
+        .catch((error) => console.error('Service Worker registration failed', error));
+    });
+  }
+  
