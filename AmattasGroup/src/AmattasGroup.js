@@ -199,11 +199,13 @@ function scrollToSection(targetId) {
 });
 
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .register('/service-worker.js')
-        .then((registration) => console.log('Service Worker registered', registration))
-        .catch((error) => console.error('Service Worker registration failed', error));
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js').then(function(reg) {
+        console.log('Service worker registered!', reg);
+      }).catch(function(err) {
+        console.error('Service worker registration failed: ', err);
+      });
     });
   }
+  
   
