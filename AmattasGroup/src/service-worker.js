@@ -1,6 +1,6 @@
 self.addEventListener('install', function (event) {
   event.waitUntil(
-    caches.open('onefrika-cache-v1').then(function (cache) {
+    caches.open('onefrika-cache-v3').then(function (cache) {
       return cache.addAll([
         '/',
         '/index.html',
