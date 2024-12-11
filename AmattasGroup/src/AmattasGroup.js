@@ -45,60 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-     // Overlay and Systeme.io form handling
-    //  const overlay = document.getElementById('overlay');
-    //  const clickMeButtons = document.querySelectorAll('.systeme-show-popup-15513494, .systeme-show-popup-15513236, .systeme-show-popup-15513637');
-     
-    //  if (overlay) {
-    //      let systemeIframe = null;
-     
-    //      function closeForm() {
-    //          overlay.style.display = 'none';
-    //          document.body.style.overflow = 'auto'; 
-     
-    //          if (systemeIframe) {
-    //              systemeIframe.style.display = 'none'; 
-    //              systemeIframe = null; 
-    //          }
-    //      }
-     
-    //      clickMeButtons.forEach(button => {
-    //          button.addEventListener('click', () => {
-    //              document.body.style.overflow = 'hidden';
-    //              overlay.style.display = 'block';
-     
-    //              const popupId = button.dataset.popupId;
-     
-    //              if (popupId) {  
-    //                  systemeio.showPopup(popupId).then((iframe) => {
-    //                     systemeIframe = iframe; 
-    //                  });
-    //              } else {
-    //                  console.error("No popup ID found on the button!");
-    //              }
-     
-    //          });
-    //      });
-     
-    //      overlay.addEventListener('click', (event) => {
-    //          // Check if the click target is within the systemeIframe
-    //          if (systemeIframe && systemeIframe.contains(event.target)) {
-    //              // Click is inside the iframe, do nothing
-    //             return; 
-    //          } else {
-    //             // Click is outside the iframe, close the form
-    //             closeForm();
-    //          }
-    //      });
-     
-     
-    //      document.addEventListener('systemePopupClose', closeForm); 
-     
-    //  } else {
-    //      console.error("Overlay element not found!");
-    //  }
-     
-
     // Lazy Load Sections
     let lazySections = document.querySelectorAll('.lazy-section');
     let observer = new IntersectionObserver((entries) => {
@@ -184,13 +130,7 @@ function scrollToSection(targetId) {
     forms.forEach(form => {
         form.addEventListener('submit', handleFormSubmission);
     });    
-
-    // Overlay click to close form
-    // const overlay = document.getElementById('overlay');
-    // if (overlay) {
-    //     overlay.addEventListener('click', closeForm);
-    // }
-
+    
     // Close button click to close form
     const closeButton = document.querySelector('button[type="button"]');
     if (closeButton) {

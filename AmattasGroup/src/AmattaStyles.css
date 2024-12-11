@@ -7,27 +7,18 @@
 }
 
 body {
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    font-size: 16px; /* Base font size */
+    font-family: 'Arial', sans-serif;  /* Specify font stack for better control */
+    line-height: 1.6;
+    font-size: 16px;  /* Base font size, use rem for scalability */
+    color: #FFD700; /* Default text color, move from html */
     background-color: #1A1A1A;
-    color: #f0ba09;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6; /* or overflow: auto; if you need horizontal scroll as well */
-    height: 100vh; /* Ensures the body takes up the full viewport height */
-    overflow-y: auto;
-    display: flex;      /* Enables flexbox for vertical layout */
-    flex-direction: column; /* Stacks elements vertically */
+    display: flex;
+    flex-direction: column; /* Modern vertical layout control */
+    min-height: 100vh; /* Fill at least the viewport height */
+    overflow-x: hidden;
+    margin: 0 auto; /* Centered content */
 }
 
-/* 3. CRITICAL: Explicitly control widths on ALL containers and content elements */
-body > * {  /*  Targets all direct children of <body> */
-    width: 100%;  /* Occupy full width of parent */
-    max-width: 100%; /*  Absolutely critical to prevent overflow */
-    margin-left: auto;
-    margin-right: auto; /*  Center block-level elements */
-}
 
 h1, h2, h3 { 
     font-weight: bold;
@@ -35,9 +26,8 @@ h1, h2, h3 {
 }
 
 p {
-    font-size: 16px;
     color: #ffffff;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 
 a {
@@ -54,15 +44,15 @@ a:hover {
 
 
 header {
-    padding: 20px 0; /* Reduce or remove fixed padding, use % or vh units */
-    position: relative;
-    padding-bottom: 40px;
+    padding: 2rem 0; /* Reduce or remove fixed padding, use % or vh units */
     text-align: center; 
+    position: relative;
+    
 }
 
 .subtext {
-    font-size: 18px;
-    margin: 20px 0;
+    font-size: 1.125rem;
+    margin: 1rem 0;
 }
 
 .header-buttons button {
@@ -82,14 +72,14 @@ header {
 /* Centering Timer */
 .timer {
     position: absolute;
-    top: 200px; /* Position from the top of the header */
+    top: 8rem; /* Position from the top of the header */
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(0, 0, 0, 0.7);
     color: #FF0000;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 18px;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.125rem;
     font-weight: bold;
     display: inline-block;
     margin-top: 200px;
@@ -182,31 +172,6 @@ header {
     display: none;
     z-index: 999;
     backdrop-filter: blur(4px);
-}
-
-/* Popup Modal Styling */
-#popupModal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #ffffff;
-    padding: 20px;
-    max-width: 90%;
-    width: 400px; 
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    z-index: 1000;
-    overflow-y: auto;
-}
-
-/* Responsive adjustments for modal on small screens */
-@media (max-width: 600px) {
-    #popupModal {
-        width: 90%;
-        padding: 15px;
-    }
 }
 
 /* Close Button */
@@ -453,6 +418,11 @@ footer {
 
  /* Enhanced responsive styles */
  @media (max-width: 768px) {
+    /* Header adjustments */
+    h1 { font-size: 1.5rem; } /* Example */
+    h2 { font-size: 1.25rem; }
+    p { font-size: 1rem; }
+
     .grid-container {
         flex-direction: column;
         align-items: center;
@@ -462,15 +432,9 @@ footer {
         width: 90%;
         max-width: none;
     }
-
-    h1 { font-size: 2.5rem; }
-
-    h2 {
-        font-size: 20px;
-    }
-    p {
-        font-size: 16px;
-    }
+    .reveal-box {
+        max-width: 100%; /* Or adjust width as needed */
+  }
     #quick-benefits ul li, #why-join-us ul li {
         font-size: 14px;
     }
@@ -488,29 +452,6 @@ footer {
         font-size: 14px;
     }
 }
-
-
-@media (max-width: 768px) {
-    body {
-        font-size: 16px;
-    }
-    h1 {
-        font-size: 24px;
-    }
-    h2 {
-        font-size: 20px;
-    }
-    p {
-        font-size: 14px;
-    }
-}
-
-/* body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
- 
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -538,12 +479,16 @@ footer {
   .hero-background {
     width: 100%; /* Ensure parent container fills its width */
     height: 400px; /* Example: Use a fixed height or min-height */
-    /* ... other styles ... */
+    background-image: url('https://res.cloudinary.com/dw7czumz9/image/fetch/v1731619747/https://res.cloudinary.com/dw7czumz9/image/upload/f_auto,q_auto,/v1731062902/real-estate_y1vdci.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; /* Ensure child elements position relative to the background */
+  
 }
 
 #promptMessage h2{
-    /* ...other styles ... */
-    color: #FF0000; /* Brighter red */
+    color: #FF0000; 
     background-color: rgba(0, 0, 0, 0.7);; /* Darker background */
 }
 
@@ -559,19 +504,6 @@ footer {
         width: 100px;
     }
 }
-
-#systemeio-iframe-1730984003638 {
-    display: none; /* Initially hidden */
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the iframe */
-    width: 80%; /* Example width */
-    height: 600px;  /* Example Height: Adjust as needed*/
-    z-index: 1000; /* Above the overlay */
-    border: none; /* optional: remove any border on the iframe */
-}
-
 
 .notice-card {
     width: 300px; /* Adjust as needed for size */
@@ -596,3 +528,6 @@ footer {
     transform: translateY(-5px); /* Lifts the box slightly on hover */
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6); /* Stronger shadow on hover */
 }
+
+.left-align { text-align: left; }
+.right-align { text-align: right; }
