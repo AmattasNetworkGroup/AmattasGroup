@@ -1,12 +1,12 @@
 {
-    "name": "oneFrika",
-    "short_name": "oneFrika",
+    "name": "OneFrika",
+    "short_name": "OneFrika",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#FFD700",
     "map_color": "#000000",
-    "description": "oneFrika offers countless life changing opportunities for African youths across Africa to become financially free. Join us and discover life-changing opportunities you shouldn't miss in this 21st century world!",
+    "description": "OneFrika offers countless life changing opportunities for African youths across Africa to become financially free. Join us and discover life-changing opportunities you shouldn't miss in this 21st century world!",
     "icons": [
       {
         "src": "/android-chrome-192x192.png",
