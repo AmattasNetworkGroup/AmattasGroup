@@ -50,7 +50,7 @@ htmlFiles.forEach(fileName => {
 
 
     const headersFilePath = path.join(__dirname, 'dist', '_headers');
-    const csp = `/*\n  Content-Security-Policy: default-src 'self'; script-src 'self' 'nonce-${nonce}' https://amattabukahomeservices.systeme.io https://upload-widget.cloudinary.com https://unpkg.com; style-src 'self' 'nonce-${nonce}' https://unpkg.com; img-src 'self' data: https://res.cloudinary.com; font-src 'self'; connect-src 'self' https://amattabukahomeservices.systeme.io https://upload-widget.cloudinary.com; frame-src https://amattabukahomeservices.systeme.io;`;  //CSP with the current nonce
+    const csp = `/*\nContent-Security-Policy: default-src 'self'; base-uri 'none'; script-src 'self' 'nonce-${nonce}' https://amattabukahomeservices.systeme.io https://upload-widget.cloudinary.com https://unpkg.com; style-src 'self' 'nonce-${nonce}' https://unpkg.com; img-src 'self' data: https://res.cloudinary.com; font-src 'self'; connect-src 'self' https://amattabukahomeservices.systeme.io https://upload-widget.cloudinary.com; frame-src https://amattabukahomeservices.systeme.io; report-uri https://b82f66c6544b5f82f92e3f169547b092.report-uri.com/r/d/csp/reportOnly`;
 
     fs.writeFileSync(headersFilePath, csp);
     console.log(`${fileName} Build complete, Nonce is: ${nonce}`);
