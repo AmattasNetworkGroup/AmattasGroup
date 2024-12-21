@@ -533,4 +533,169 @@ footer {
 .right-align { text-align: right; }
 
 
-  
+  /* General Styles */
+body {
+    background-color: #1A1A1A;
+    color: #f0ba09;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 5px 0;
+    margin: 10px 0;
+}
+
+header h1 {
+    font-size: 30px;
+    margin: 0;
+}
+
+header .subtext {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+header .header-buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+.intro-text p {
+    color: #FFD700;
+}
+
+
+/* Hero Section */
+.hero-background {
+    background-size: cover;
+    padding: 80px 0;
+    background-image: url('https://res.cloudinary.com/dw7czumz9/image/upload/f_auto,q_auto,/v1731062902/real-estate_y1vdci.jpg'); /* Or use a CSS variable for this if the image changes dynamically */
+}
+
+.offer-story-container {
+    text-align: center;
+}
+
+.business-offer {
+    background-color: rgba(33, 36, 33, 0.9);
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.business-offer h2 {
+    font-size: 28px;
+}
+
+.business-offer p {
+    font-size: 16px;
+}
+
+.timer {
+    margin-bottom: 20px;
+}
+
+
+
+/*  Prompt Styles */
+#promptMessage {
+    display: none; /* Initially hidden */
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #f50505;
+    padding: 0px; /* Check if this is intentional - 0 padding */
+    border-radius: 10px;
+    position: fixed;
+    width: 80%;
+    margin: 0 auto; /* Center horizontally */
+    left: 10%; /* Adjust for desired positioning */
+    right: 10%;
+    top: 10px;
+    z-index: 9999;
+    margin-bottom: 10px;
+}
+#promptMessage h2 {
+    font-size: 18px;
+}
+
+/* Card Container and Grid */
+.card-container {
+    margin-top: 20px;
+}
+
+.service-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.service-card h3 {
+    font-size: 22px; /* Adjust if needed based on design */
+}
+
+/*Click Here and Learn more*/
+.service-card span { /* Target the <span> inside .service-card */
+    display: block; /* Or inline-block if you want it inline with other elements */
+    font-size: 0.8em;
+    color: rgb(255, 212, 20); /* Or #FFD700 for consistency */
+}
+
+/* Other Sections */
+#otherSections .grid-item section {  /* Quick benefits, My Story, etc. */
+    padding: 40px;
+    text-align: center;
+}
+
+
+#otherSections .grid-item section h2 {
+    font-size: 28px;
+}
+
+#otherSections .grid-item section p {
+    font-size: 16px;
+}
+
+#otherSections .grid-item section ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px; /* Or 16px for consistency */
+}
+
+#why-join-us ul {  /* Specific styles for "Why Join Us" list */
+    list-style: none; /* Consider moving all list styles to a shared rule for DRY code */
+    padding: 0;
+    font-size: 14px; /* If you want it smaller than other text */
+}
+
+.reveal-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px;
+}
+
+.reveal-box {
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+
+/* Footer Styles */
+footer {
+    padding: 20px;
+    background-color: #1A1A1A;
+    text-align: center;
+    color: #f0ba09;
+}
+
+footer .social-media a {
+    margin: 0 10px;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
