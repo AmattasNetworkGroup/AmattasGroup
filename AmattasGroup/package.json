@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "AmattasGroup.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack && node build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,10 +12,21 @@
   "description": "",
   "devDependencies": {
     "copy-webpack-plugin": "^12.0.2",
+    "csp-html-webpack-plugin": "^5.1.0",
+    "csp-webpack-plugin": "^2.0.2",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "npm-force-resolutions": "^0.0.10"
+  },
+  "resolutions": {
+    "lodash.pick": "4.4.0",
+    "nth-check": "2.1.1",
+    "css-select": "5.1.0"
   }
 }

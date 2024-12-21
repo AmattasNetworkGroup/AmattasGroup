@@ -28,18 +28,26 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',  // Path to your HTML template
       filename: 'index.html',  // Output HTML file name in dist folder
+      inject: 'body',              // Inject scripts at the end of the body (best practice unless you have very specific needs for head injection)
+      scriptLoading: 'blocking',    // Load scripts using blocking <script> tags 
     }),
     new HtmlWebpackPlugin({
       template: './src/real-estate-welcome.html',  // Path to another HTML file
       filename: 'real-estate-welcome.html',  // Output HTML file name in dist folder
+      inject: 'body',              // Inject scripts at the end of the body (best practice unless you have very specific needs for head injection)
+      scriptLoading: 'blocking',    // Load scripts using blocking <script> tags 
     }),
     new HtmlWebpackPlugin({
       template: './src/telecommunications.html',  // Path to another HTML file
       filename: 'telecommunications.html',  // Output HTML file name in dist folder
+      inject: 'body',              // Inject scripts at the end of the body (best practice unless you have very specific needs for head injection)
+      scriptLoading: 'blocking',    // Load scripts using blocking <script> tags 
     }),
     new HtmlWebpackPlugin({
       template: './src/solar.html',  // Path to another HTML file
       filename: 'solar.html',  // Output HTML file name in dist folder
+      inject: 'body',              // Inject scripts at the end of the body (best practice unless you have very specific needs for head injection)
+      scriptLoading: 'blocking',    // Load scripts using blocking <script> tags 
     }),
     new CopyWebpackPlugin({
       patterns: [
